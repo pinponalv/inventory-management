@@ -1,8 +1,8 @@
 package com.pinpon.inventory.management.purchaseOrder.service;
 
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.ResponseDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.CreateDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.UpdateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.ResponseDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.CreateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.UpdateDTO;
 
 import java.util.List;
 

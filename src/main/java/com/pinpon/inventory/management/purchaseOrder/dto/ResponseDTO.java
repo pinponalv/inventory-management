@@ -1,7 +1,5 @@
-package com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder;
+package com.pinpon.inventory.management.purchaseOrder.dto;
 
-import com.pinpon.inventory.management.purchaseOrder.dto.product.ProductDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.supplier.SupplierDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +13,8 @@ import java.math.BigDecimal;
 @Setter
 public class ResponseDTO {
     private Long id;
-    private ProductDTO product;
-    private SupplierDTO supplier;
+    private String productName;
+    private String supplierName;
     private int stock;
     private BigDecimal purchasePrice;
 }

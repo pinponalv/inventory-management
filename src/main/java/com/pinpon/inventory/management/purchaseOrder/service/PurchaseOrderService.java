@@ -2,9 +2,9 @@ package com.pinpon.inventory.management.purchaseOrder.service;
 
 import com.pinpon.inventory.management.product.entity.Product;
 import com.pinpon.inventory.management.product.repository.IProductRepository;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.CreateDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.ResponseDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.UpdateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.CreateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.ResponseDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.UpdateDTO;
 import com.pinpon.inventory.management.purchaseOrder.entity.PurchaseOrder;
 import com.pinpon.inventory.management.purchaseOrder.mapper.PurchaseOrderMapper;
 import com.pinpon.inventory.management.purchaseOrder.repository.IPurchaseOrderRepository;

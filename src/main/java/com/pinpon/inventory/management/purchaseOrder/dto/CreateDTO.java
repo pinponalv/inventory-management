@@ -1,4 +1,4 @@
-package com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder;
+package com.pinpon.inventory.management.purchaseOrder.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Setter
 @Getter
-public class UpdateDTO {
+public class CreateDTO {
 
     @NotBlank
     @PositiveOrZero

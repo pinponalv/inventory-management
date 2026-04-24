@@ -14,6 +14,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -35,11 +36,14 @@ public class InventoryMovement {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "supplier_id")
     private Supplier supplier;
+
     private int quantity;
     @CreationTimestamp
     private Date creationDate;
+
     private TypeMovement typeMovement;
-
-
 }

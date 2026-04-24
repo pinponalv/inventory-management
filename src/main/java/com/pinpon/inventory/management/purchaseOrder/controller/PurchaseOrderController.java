@@ -1,8 +1,8 @@
 package com.pinpon.inventory.management.purchaseOrder.controller;
 
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.CreateDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.ResponseDTO;
-import com.pinpon.inventory.management.purchaseOrder.dto.purchaseOrder.UpdateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.CreateDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.ResponseDTO;
+import com.pinpon.inventory.management.purchaseOrder.dto.UpdateDTO;
 import com.pinpon.inventory.management.purchaseOrder.service.IPurchaseOrderService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

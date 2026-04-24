@@ -1,5 +1,6 @@
 package com.pinpon.inventory.management.supplier.entity;
 
+import com.pinpon.inventory.management.inventoryMovement.entity.InventoryMovement;
 import com.pinpon.inventory.management.purchaseOrder.entity.PurchaseOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,4 +34,7 @@ public class Supplier {
 
     @OneToMany (mappedBy = "supplier")
     private List<PurchaseOrder> purchaseOrders;
+
+    @OneToMany (mappedBy = "supplier")
+    private List<InventoryMovement> inventoryMovements;
 }

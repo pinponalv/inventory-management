@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "warehouses")
+@Table(name = "warehouse")
 public class Warehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +27,7 @@ public class Warehouse {
     @Column(unique = true, nullable = false)
     private String address;
 
-    @OneToMany (mappedBy = "warehouses")
+    @OneToMany (mappedBy = "warehouse")
     private List<Inventory> inventory;
 
     @OneToMany (mappedBy = "warehouse")
