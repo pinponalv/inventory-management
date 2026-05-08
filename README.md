@@ -1,8 +1,8 @@
-#Inventory-management
+# Inventory-management
 
 Sistema de gestion de inventarios que permite administrar nuestros productos, proveedores, almacenes, poder registrar movimientos de entrada de manera automatica y manual, generar compras
 
-##Technologies
+## Technologies
 - Java 17
 - Spring Boot
 - Spring Data JPA
@@ -10,7 +10,7 @@ Sistema de gestion de inventarios que permite administrar nuestros productos, pr
 - Maven
 - Docker compose
 
-##Features
+## Features
 - CRUD Products
 - CRUD Supplier
 - CRUD Warehouse
