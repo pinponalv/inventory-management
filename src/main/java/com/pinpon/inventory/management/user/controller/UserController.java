@@ -38,13 +38,13 @@ public class UserController {
         return ResponseEntity.ok(userResponseDTO);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<UserResponseDTO> getUserByName(@PathVariable String name) {
         UserResponseDTO user = userService.findByName(name);
         return  ResponseEntity.ok(user);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<UserResponseDTO> getUserByEmail(@PathVariable String email) {
         UserResponseDTO userResponseDTO = userService.findByEmail(email);
         return ResponseEntity.ok(userResponseDTO);

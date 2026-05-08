@@ -5,10 +5,6 @@ import com.pinpon.inventory.management.inventoryMovement.entity.InventoryMovemen
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-//,
-//uses = {ProductMapper.class, SupplierMapper.class,
-//UserMapper.class, WarehouseMapper.class}
-
 @Mapper(componentModel = "spring")
 public interface InventoryMovementMapper {
 

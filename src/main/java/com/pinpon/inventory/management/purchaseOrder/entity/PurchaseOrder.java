@@ -3,7 +3,6 @@ package com.pinpon.inventory.management.purchaseOrder.entity;
 import com.pinpon.inventory.management.product.entity.Product;
 import com.pinpon.inventory.management.supplier.entity.Supplier;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

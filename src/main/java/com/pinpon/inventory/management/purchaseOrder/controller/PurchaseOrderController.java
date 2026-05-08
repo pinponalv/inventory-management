@@ -20,11 +20,9 @@ public class PurchaseOrderController {
     @Autowired
     private IPurchaseOrderService purchaseOrderService;
 
-    //Se crea la orden de compra y se le pasa el producto que quiero y el proveedor al que le compro
-    //Para esto ya debo tener
-    @PostMapping("/product/{productId}/supplier/{supplierId}")
-    public ResponseEntity<ResponseDTO> createPurchaseOrder(@PathVariable Long productId, @PathVariable Long supplierId, CreateDTO createDTO) {
-        ResponseDTO response = purchaseOrderService.createPurchaseOrder(productId, supplierId, createDTO);
+    @PostMapping("/user/{userId}/warehouse/{warehouseId}/product/{productId}/supplier/{supplierId}")
+    public ResponseEntity<ResponseDTO> createPurchaseOrder(@PathVariable Long userId,@PathVariable Long warehouseId, @PathVariable Long productId, @PathVariable Long supplierId,@RequestBody CreateDTO createDTO) {
+        ResponseDTO response = purchaseOrderService.createPurchaseOrder(userId, warehouseId,productId, supplierId, createDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

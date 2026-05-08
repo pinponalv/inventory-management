@@ -1,8 +1,6 @@
 package com.pinpon.inventory.management.purchaseOrder.dto;
 
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,11 +14,11 @@ import java.math.BigDecimal;
 @Getter
 public class UpdateDTO {
 
-    @NotBlank
-    @PositiveOrZero
-    private int stock;
 
-    @NotBlank
+    @Positive
+    private Integer stock;
+
+
     @Positive
     private BigDecimal purchasePrice;
 }

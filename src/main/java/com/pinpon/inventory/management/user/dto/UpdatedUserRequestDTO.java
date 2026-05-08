@@ -13,14 +13,11 @@ import lombok.Setter;
 @Setter
 @Getter
 public class UpdatedUserRequestDTO {
-    @NotBlank
+
     private String name;
-    @NotBlank
     private String lastName;
     @Email
-    @NotBlank
     private String email;
-    @NotBlank
     @Size(min = 6)
     private String password;
 }

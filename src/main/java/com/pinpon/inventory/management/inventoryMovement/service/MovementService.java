@@ -23,6 +23,7 @@ public class MovementService implements IMovementService {
     @Autowired
     private IMovementRepository movementRepository;
 
+    /**
     @Autowired
     private IProductRepository productRepository;
 
@@ -31,10 +32,13 @@ public class MovementService implements IMovementService {
 
     @Autowired
     private ISupplierRepository supplierRepository;
+    **/
+
 
     @Autowired
     private InventoryMovementMapper inventoryMovementMapper;
 
+    /**
     @Override
     public ResponseMovementDTO createMovement(Long productId, Long warehouseId, Long userId, Long supplierId, CreateMovementDTO requestDTO) {
         Product existingProduct = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("product not found"));
@@ -52,8 +56,7 @@ public class MovementService implements IMovementService {
 
         return inventoryMovementMapper.toDTO(savedMovent);
     }
-
-    //TODO: CONTINUAR AQUI
+    **/
 
     @Override
     public List<ResponseMovementDTO> findAllMovement() {
@@ -95,8 +98,14 @@ public class MovementService implements IMovementService {
     @Override
     public ResponseMovementDTO updateMovement(Long id, UpdateMovementDTO requestDTO) {
         InventoryMovement movement =  movementRepository.findById(id).orElseThrow(() -> new RuntimeException("movement not found"));
-        movement.setQuantity(requestDTO.getQuantity());
-        movement.setTypeMovement(requestDTO.getTypeMovement());
+
+        if(requestDTO.getQuantity() != null){
+            movement.setQuantity(requestDTO.getQuantity());
+        }
+
+        if(requestDTO.getTypeMovement() != null){
+            movement.setTypeMovement(requestDTO.getTypeMovement());
+        }
 
         InventoryMovement savedMovement = movementRepository.save(movement);
 

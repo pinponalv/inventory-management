@@ -1,6 +1,5 @@
 package com.pinpon.inventory.management.inventoryMovement.controller;
 
-import com.pinpon.inventory.management.inventory.service.IInventoryService;
 import com.pinpon.inventory.management.inventoryMovement.dto.CreateMovementDTO;
 import com.pinpon.inventory.management.inventoryMovement.dto.ResponseMovementDTO;
 import com.pinpon.inventory.management.inventoryMovement.dto.UpdateMovementDTO;
@@ -21,6 +20,7 @@ public class InventoryMovementController {
     @Autowired
     private IMovementService movementService;
 
+    /**
     @PostMapping("/produt/{productId}/warehouse/{warehouseId}/user/{userId}/supplier/{supplierId}")
     public ResponseEntity<ResponseMovementDTO> createMovement(@PathVariable Long productId
             , @PathVariable Long warehouseId, @PathVariable Long userId
@@ -29,7 +29,7 @@ public class InventoryMovementController {
 
         ResponseMovementDTO response = movementService.createMovement(productId, warehouseId, userId, supplierId, requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
-    }
+    } **/
 
     @GetMapping
     public ResponseEntity<List<ResponseMovementDTO>> getAllMovements(){
@@ -55,9 +55,5 @@ public class InventoryMovementController {
         return ResponseEntity.noContent().build();
     }
 
-
-    //TODO: MAYBE AGREGAR BUSCAR POR NOMBRE DE USUARIO QUIEN LO HIZO
-
-
-
+    //TODO: ADD SEARCH BY USERNAME
 }

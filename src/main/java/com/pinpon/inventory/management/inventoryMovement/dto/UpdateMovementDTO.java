@@ -1,6 +1,8 @@
 package com.pinpon.inventory.management.inventoryMovement.dto;
 
 import com.pinpon.inventory.management.inventoryMovement.entity.enums.TypeMovement;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +22,10 @@ public class UpdateMovementDTO {
     private Long supplierId;
     *
     * */
-    private int quantity;
+
+    @Positive
+    private Integer quantity;
+
+    @NotNull
     private TypeMovement typeMovement;
 }

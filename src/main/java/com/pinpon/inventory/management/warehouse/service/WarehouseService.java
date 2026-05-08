@@ -35,9 +35,14 @@ public class WarehouseService implements IWarehouseService {
     @Override
     public ResponseWarehouseDTO updateWarehouse(Long id, UpdateWarehouseDTO requestDTO) {
         Warehouse warehouse = warehouseRepository.findById(id).orElseThrow(() -> new RuntimeException("warehouse not found id " + id));
-        warehouse.setName(requestDTO.getName());
-        warehouse.setAddress(requestDTO.getAdress());
 
+        if(requestDTO.getName() != null) {
+            warehouse.setName(requestDTO.getName());
+        }
+
+        if(requestDTO.getAdress() != null) {
+            warehouse.setAddress(requestDTO.getAdress());
+        }
         Warehouse savedWarehouse = warehouseRepository.save(warehouse);
         return new  ResponseWarehouseDTO(
                 savedWarehouse.getId(),

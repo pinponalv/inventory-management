@@ -37,7 +37,7 @@ public class WarehouseController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<ResponseWarehouseDTO> getWarehouseByName(@PathVariable String name) {
         ResponseWarehouseDTO response = warehouseService.getWarehouseByName(name);
         return ResponseEntity.ok(response);

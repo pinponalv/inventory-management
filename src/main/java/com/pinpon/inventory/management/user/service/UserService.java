@@ -70,10 +70,23 @@ public class UserService implements IUserService {
     public UserResponseDTO updateUser(Long id, UpdatedUserRequestDTO requestDTO) {
         User existingUser = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
 
-        existingUser.setName(requestDTO.getName());
-        existingUser.setLastName(requestDTO.getLastName());
-        existingUser.setEmail(requestDTO.getEmail());
-        existingUser.setPassword(requestDTO.getPassword());
+
+        if(requestDTO.getName() != null){
+            existingUser.setName(requestDTO.getName());
+        }
+
+        if(requestDTO.getLastName() != null){
+            existingUser.setLastName(requestDTO.getLastName());
+        }
+
+        if(requestDTO.getEmail() != null){
+            existingUser.setEmail(requestDTO.getEmail());
+        }
+
+        if(requestDTO.getPassword() != null){
+            existingUser.setPassword(requestDTO.getPassword());
+        }
+
 
         User savedUser = userRepository.save(existingUser);
         return new UserResponseDTO(

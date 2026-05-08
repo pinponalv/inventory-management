@@ -51,19 +51,19 @@ public class InventoryController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{productId}/{warehouseId}")
+    @GetMapping("/product/{productId}/warehouse/{warehouseId}")
     public ResponseEntity<ResponseInventoryDTO> getInventoryByProductIdAndWarehouseId(@PathVariable Long productId
             , @PathVariable Long warehouseId) {
         ResponseInventoryDTO response = inventoryService.findByProductIdAndWarehouseId(productId, warehouseId);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{productName}")
+    @GetMapping("/productName/{productName}")
     public ResponseEntity<ResponseInventoryDTO> getInventoryByProductName(@PathVariable String productName) {
         ResponseInventoryDTO response = inventoryService.findByProductName(productName);
         return ResponseEntity.ok(response);
     }
-    @GetMapping("/warehouseName")
+    @GetMapping("/warehouseName/{warehouseName}")
     public ResponseEntity<ResponseInventoryDTO> getInventoryByWarehouseName(@PathVariable String warehouseName) {
         ResponseInventoryDTO response = inventoryService.findByWarehouseName(warehouseName);
         return ResponseEntity.ok(response);

@@ -20,7 +20,7 @@ public class SupplierController {
     private ISupplierService supplierService;
 
     @PostMapping
-    public ResponseEntity<SupplierResponseDTO> createSupplier(CreateSupplierRequestDTO requestDTO) {
+    public ResponseEntity<SupplierResponseDTO> createSupplier(@RequestBody CreateSupplierRequestDTO requestDTO) {
         SupplierResponseDTO supplierResponseDTO = supplierService.createSupplier(requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(supplierResponseDTO);
     }
@@ -37,7 +37,7 @@ public class SupplierController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<SupplierResponseDTO> getSupplierByEmail(@PathVariable String email) {
         SupplierResponseDTO response = supplierService.findSupplierByEmail(email);
         return ResponseEntity.ok(response);

@@ -16,6 +16,7 @@ public class CreateSupplierRequestDTO {
 
     @NotBlank
     private String name;
+
     @NotBlank
     private String description;
 

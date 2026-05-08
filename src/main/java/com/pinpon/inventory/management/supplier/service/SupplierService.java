@@ -67,7 +67,7 @@ public class SupplierService implements ISupplierService {
 
     @Override
     public SupplierResponseDTO findSupplierByEmail(String email) {
-        Supplier supplier = supplierRepository.existsByEmail(email);
+        Supplier supplier = supplierRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Supplier not found with email " + email));
 
         if(supplier.getEmail() == null){
             throw  new RuntimeException("Supplier not found with email " + email);

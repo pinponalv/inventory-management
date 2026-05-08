@@ -41,7 +41,6 @@ public class InventoryService implements IInventoryService {
         Warehouse existingWarehouse = warehouseRepository.findById(requestDTO.getWarehouseId())
                 .orElseThrow(() -> new RuntimeException("warehouse not found"));
 
-        //TODO: SEARCH INVENTORY BY PRODUCT AND WAREHOUSE EXISTING, BUSCAR INVENTARIO MEDIANTE EXISTENCIA DE PRODUCTO Y ALMACEN
         Optional<Inventory> existing = inventoryRepository
                 .findByProductIdAndWarehouseId(requestDTO.getProductId(), requestDTO.getWarehouseId());
 
