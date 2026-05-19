@@ -91,8 +91,8 @@ public class InventoryService implements IInventoryService {
         );
     }
 
+    //TODO: FIX FOR PATCH UPDATE WITH IF(CONDITION)
     @Override
-    @Transactional
     public ResponseInventoryDTO updateInventory(Long id, UpdateInventoryRequestDTO requestDTO) {
         Inventory inventory = inventoryRepository.findById(id).orElseThrow(() -> new RuntimeException("inventory not found"));
 
@@ -109,7 +109,6 @@ public class InventoryService implements IInventoryService {
     }
 
     @Override
-    @Transactional
     public void deleteInventory(Long id) {
         inventoryRepository.deleteById(id);
     }

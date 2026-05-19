@@ -14,7 +14,16 @@ public class OpenApiConfig {
                 .info(new Info()
                 .title("Inventory Management")
                 .version("1.0")
-                .description("Documentation Inventory Management")
+                .description("""
+                        REST API for managing
+                        -Inventory
+                        -Movements
+                        -Products
+                        -Purchases
+                        -Suppliers
+                        -Users
+                        -Warehouses
+                        """)
                         .contact(new Contact()
                                 .name("pinponalv")
                                 .url("https://github.com/pinponalv")

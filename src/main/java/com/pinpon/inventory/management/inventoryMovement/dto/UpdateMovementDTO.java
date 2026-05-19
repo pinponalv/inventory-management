@@ -1,6 +1,7 @@
 package com.pinpon.inventory.management.inventoryMovement.dto;
 
 import com.pinpon.inventory.management.inventoryMovement.entity.enums.TypeMovement;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,9 @@ public class UpdateMovementDTO {
     *
     * */
 
+    @Schema(example = "1", description = "The quantity of stock that is moved")
     @Positive
     private Integer quantity;
-
-    @NotNull
+    @Schema(example = "IN / OUT", description = "The product is IN or OUT of warehouse")
     private TypeMovement typeMovement;
 }
