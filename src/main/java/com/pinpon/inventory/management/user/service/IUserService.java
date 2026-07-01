@@ -14,4 +14,6 @@ public interface IUserService {
     void deleteUser(Long id);
     UserResponseDTO findByEmail(String email);
     UserResponseDTO findByName(String name);
+    //Method for encripting
+    String encriptPassword(String password);
 }

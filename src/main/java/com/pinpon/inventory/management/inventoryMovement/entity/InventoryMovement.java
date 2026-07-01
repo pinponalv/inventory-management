@@ -3,7 +3,7 @@ package com.pinpon.inventory.management.inventoryMovement.entity;
 import com.pinpon.inventory.management.inventoryMovement.entity.enums.TypeMovement;
 import com.pinpon.inventory.management.product.entity.Product;
 import com.pinpon.inventory.management.supplier.entity.Supplier;
-import com.pinpon.inventory.management.user.entity.User;
+import com.pinpon.inventory.management.user.entity.UserSec;
 import com.pinpon.inventory.management.warehouse.entity.Warehouse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,7 +35,7 @@ public class InventoryMovement {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserSec user;
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")

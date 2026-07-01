@@ -15,7 +15,7 @@ import com.pinpon.inventory.management.purchaseOrder.mapper.PurchaseOrderMapper;
 import com.pinpon.inventory.management.purchaseOrder.repository.IPurchaseOrderRepository;
 import com.pinpon.inventory.management.supplier.entity.Supplier;
 import com.pinpon.inventory.management.supplier.repository.ISupplierRepository;
-import com.pinpon.inventory.management.user.entity.User;
+import com.pinpon.inventory.management.user.entity.UserSec;
 import com.pinpon.inventory.management.user.repository.IUserRepository;
 import com.pinpon.inventory.management.warehouse.entity.Warehouse;
 import com.pinpon.inventory.management.warehouse.repository.IWarehouseRepository;
@@ -60,7 +60,7 @@ public class PurchaseOrderService implements IPurchaseOrderService {
         Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("product not found"));
         Supplier supplier = supplierRepository.findById(supplierId).orElseThrow(() -> new RuntimeException("supplier not found"));
         Warehouse warehouse = warehouseRepository.findById(warehouseId).orElseThrow(() -> new RuntimeException("warehouse not found"));
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("user not found"));
+        UserSec user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("user not found"));
 
         //save purchase
         PurchaseOrder purchaseOrder = new PurchaseOrder();

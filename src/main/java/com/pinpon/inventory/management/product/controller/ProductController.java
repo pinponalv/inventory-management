@@ -8,11 +8,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,11 +27,12 @@ public class ProductController {
     private IProductService productService;
 
 
-    @Operation(summary = "create a product")
+    @Operation(summary = "create a product", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PostMapping
     public ResponseEntity<ResponseProductDTO> createProduct(@Valid @RequestBody CreateProductRequestDTO requestDTO){
         ResponseProductDTO response = productService.createProduct(requestDTO);
@@ -61,12 +64,13 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Update product by id")
+    @Operation(summary = "Update product by id", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok request"),
             @ApiResponse(responseCode = "400", description = "Bad Request"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PatchMapping("/{id}")
     public ResponseEntity<ResponseProductDTO> updateProduct(@Parameter(description = "Product ID", example = "1")
                                                                 @PathVariable Long id,
@@ -75,11 +79,12 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Delete product by id")
+    @Operation(summary = "Delete product by id", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Product deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseProductDTO> deleteProduct(@Parameter(description = "Product ID", example = "1")
                                                                 @PathVariable Long id){

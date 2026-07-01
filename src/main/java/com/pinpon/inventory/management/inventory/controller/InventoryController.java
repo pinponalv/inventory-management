@@ -8,11 +8,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,18 +26,19 @@ public class InventoryController {
     @Autowired
     private IInventoryService inventoryService;
 
-    @Operation(summary = "create a inventory")
+    @Operation(summary = "create a inventory", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PostMapping
     public ResponseEntity<ResponseInventoryDTO> createInventory(@Valid @RequestBody CreateInventoryRequestDTO requestDTO) {
         ResponseInventoryDTO response = inventoryService.createInventory(requestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @Operation(summary = "Get all inventorys")
+    @Operation(summary = "Get all inventories")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok request"),
             @ApiResponse(responseCode = "400", description = "Bad Request"),
@@ -60,12 +63,13 @@ public class InventoryController {
         return ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Update inventory by id")
+    @Operation(summary = "Update inventory by id", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok request"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PatchMapping("/{id}")
     public ResponseEntity<ResponseInventoryDTO> updateInventory(@Parameter(description = "Inventory ID", example = "1")
                                                                     @PathVariable Long id
@@ -74,11 +78,12 @@ public class InventoryController {
         return  ResponseEntity.ok(response);
     }
 
-    @Operation(summary = "Delete by id")
+    @Operation(summary = "Delete by id", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "No Content"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseInventoryDTO> deleteInventoryById(@Parameter(description = "Inventory ID", example = "1")
                                                                         @PathVariable Long id) {
@@ -86,12 +91,13 @@ public class InventoryController {
         return ResponseEntity.noContent().build();
     }
 
-    @Operation(summary = "Get inventory by product id and warehouse id")
+    @Operation(summary = "Get inventory by product id and warehouse id", security = @SecurityRequirement(name = "bearerAuth"))
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Ok request"),
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @GetMapping("/product/{productId}/warehouse/{warehouseId}")
     public ResponseEntity<ResponseInventoryDTO> getInventoryByProductIdAndWarehouseId(@Parameter(description = "Product ID", example = "1")
                                                                                           @PathVariable Long productId,

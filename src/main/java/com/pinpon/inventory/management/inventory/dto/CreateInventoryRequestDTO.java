@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreateInventoryRequestDTO {
+public class  CreateInventoryRequestDTO {
     @Schema(example = "1", description = "Is the product ID")
     @NotNull(message = "productId is mandatory")
     private Long productId;

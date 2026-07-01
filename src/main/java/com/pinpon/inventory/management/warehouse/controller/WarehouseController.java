@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class WarehouseController {
             @ApiResponse(responseCode = "201", description = "Created"),
             @ApiResponse(responseCode = "400", description = "Bad Request")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PostMapping
     public ResponseEntity<ResponseWarehouseDTO> createWarehouse(@RequestBody CreateWarehouseDTO requestDTO) {
         ResponseWarehouseDTO response = warehouseService.createWarehouse(requestDTO);
@@ -80,6 +82,7 @@ public class WarehouseController {
             @ApiResponse(responseCode = "400", description = "Bad Request"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @PatchMapping("/{id}")
     public ResponseEntity<ResponseWarehouseDTO> updateWarehouseById(@Parameter(description = "Warehouse ID", example = "1")
                                                                         @PathVariable Long id,
@@ -94,6 +97,7 @@ public class WarehouseController {
             @ApiResponse(responseCode = "204", description = "User deleted successfully"),
             @ApiResponse(responseCode = "404", description = "Not found")
     })
+    @PreAuthorize("hasAnyRole('ADMIN','MOD')")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseWarehouseDTO> deleteWarehouseById(@Parameter(description = "Warehouse ID", example = "1")
                                                                         @PathVariable Long id) {

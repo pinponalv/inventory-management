@@ -1,10 +1,12 @@
 package com.pinpon.inventory.management.user.dto;
 
-import com.pinpon.inventory.management.user.entity.enums.Role;
+import com.pinpon.inventory.management.role.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,5 +17,5 @@ public class UserResponseDTO {
     private String name;
     private String lastName;
     private String email;
-    private Role role;
+    private Set<Role> roles;
 }
