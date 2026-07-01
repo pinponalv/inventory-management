@@ -11,6 +11,9 @@ Sistema de gestion de inventarios que permite administrar nuestros productos, pr
 - MySQL
 - Maven
 - Docker compose
+- Spring Security
+- JWT Authentication
+- Swagger/OpenAPI Documentation
 
 ## Features
 - CRUD Products
@@ -22,8 +25,5 @@ Sistema de gestion de inventarios que permite administrar nuestros productos, pr
 - CRUD User
 
 ## Future Improvements
-- Spring Security
-- JWT Authentication
-- Role-based access control
-- Swagger/OpenAPI Documentation
 - Unit and Integration Testing
+- Add request for register
